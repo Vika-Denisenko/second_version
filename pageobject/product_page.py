@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from decimal import Decimal
 
 from selenium.webdriver.chrome.webdriver import WebDriver
@@ -7,6 +6,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.expected_conditions import visibility_of_element_located
 from selenium.webdriver.support.wait import WebDriverWait
 
+from model import ProductInfo
 from pageobject.base_page import BasePage
 
 
@@ -19,17 +19,6 @@ def extract_decimal_price(text: str) -> Decimal:
 
     return Decimal(price_without_punctuation)
 
-
-@dataclass
-class ProductInfo:
-    name: str
-    brand: str = ''
-    product_code: str = ''
-    price: Decimal = 0
-    description: str = ''
-    '''Убрать url and qty'''
-    url: str = ''
-    qty: int = 0
 
 
 class ProductPage(BasePage):

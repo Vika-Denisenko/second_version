@@ -1,7 +1,8 @@
 import unittest
 from decimal import Decimal
 
-from pageobject.product_page import ProductPage, ProductInfo
+from model import ProductInfo
+from pageobject.product_page import ProductPage
 from webdriver_factory import WebDriverFactory
 
 

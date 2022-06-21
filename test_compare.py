@@ -1,8 +1,9 @@
 import unittest
 from typing import List
 
+from model import ProductInfo
 from pageobject.comparison_page import ComparisonPage
-from pageobject.product_page import ProductPage, ProductInfo
+from pageobject.product_page import ProductPage
 from webdriver_factory import WebDriverFactory
 
 

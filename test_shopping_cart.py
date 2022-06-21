@@ -2,7 +2,8 @@ import unittest
 from decimal import Decimal
 from typing import List
 
-from pageobject.product_page import ProductPage, ProductInfo
+from model import ProductInfo
+from pageobject.product_page import ProductPage
 from pageobject.shopping_cart_page import ShoppingCartPage
 from webdriver_factory import WebDriverFactory
 

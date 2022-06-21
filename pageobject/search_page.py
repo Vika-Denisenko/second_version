@@ -1,5 +1,4 @@
-from dataclasses import dataclass
-from decimal import Decimal
+
 from typing import List
 
 from selenium.webdriver.common.by import By
@@ -9,13 +8,9 @@ from selenium.webdriver.support.expected_conditions import visibility_of_all_ele
 from selenium.webdriver.support.wait import WebDriverWait
 
 from extract_price import extract_decimal_price
+from model import ProductInfo
 from pageobject.base_page import BasePage
 
-
-@dataclass
-class ProductInfo:
-    name: str
-    price: Decimal
 
 
 class SearchPage(BasePage):

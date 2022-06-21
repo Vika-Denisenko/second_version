@@ -2,7 +2,8 @@ import unittest
 
 from typing import List
 
-from pageobject.search_page import SearchPage, ProductInfo
+from model import ProductInfo
+from pageobject.search_page import SearchPage
 from webdriver_factory import WebDriverFactory
 
 
