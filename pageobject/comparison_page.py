@@ -21,14 +21,13 @@ class ComparisonPage(BasePage):
 
     def get_button_remove(self) -> WebElement:
         '''Находим кнопку удалить'''
-        button_remove:WebElement = self.driver.find_element(By.CLASS_NAME, 'btn-danger')
+        button_remove: WebElement = self.driver.find_element(By.CLASS_NAME, 'btn-danger')
         return button_remove
 
     def remove(self):
         '''Кликаем по кнопке удалить, ждем чтобы '''
         WebDriverWait(self.driver, timeout=5).until(
-            element_to_be_clickable(self.get_button_remove()),
-            )
+            element_to_be_clickable(self.get_button_remove()))
         self.get_button_remove().click()
 
     def get_alert_text(self) -> str:

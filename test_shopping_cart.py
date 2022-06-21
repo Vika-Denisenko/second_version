@@ -50,7 +50,7 @@ class ShoppingCartTest(unittest.TestCase):
             actual_name_list
 
         )
-        # expected_total_sum: Decimal = sum([product.qty*Decimal(product.price) for product in self.expected_products_list])
+
         expected_total_sum: Decimal = Decimal(606.00)
         actual_total_sum = shopping_cart_page.total_sum()
 
@@ -62,7 +62,7 @@ class ShoppingCartTest(unittest.TestCase):
         for _ in range(len(self.expected_products_list)):
             shopping_cart_page.remove_cart()
 
-        self.assertIn(
+        self.assertEqual(
             'Your shopping cart is empty!',
             shopping_cart_page.get_content_text()
         )

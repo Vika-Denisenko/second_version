@@ -37,8 +37,7 @@ class CompareTest(unittest.TestCase):
         '''Проверяем наличие продуктов на странице сравнения'''
         product_page.open_comparison_page()
         comparison_page = ComparisonPage(self.driver)
-        comparison_page.open()
-        # comparison_page = product_page.open_comparison_page()
+
         expected_names: List[str] = [product.name for product in self.expected_product_list]
         actual_names: List[str] = comparison_page.get_name_in_comparison()
 
