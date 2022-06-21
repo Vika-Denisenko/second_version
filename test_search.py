@@ -20,7 +20,7 @@ class SearchPageTest(unittest.TestCase):
                                        price=110.00)
 
         self.search_page.enter_word('apple')
-        self.search_page.search_basic()
+        self.search_page.search_default()
         self.search_page.clear_search()
         actual_product: List[ProductInfo] = self.search_page.get_search_results()
 
@@ -39,7 +39,7 @@ class SearchPageTest(unittest.TestCase):
                                        price=1202.00)
 
         self.search_page.enter_word('sony')
-        self.search_page.search_basic()
+        self.search_page.search_default()
         self.search_page.clear_search()
 
         actual_product: List[ProductInfo] = self.search_page.get_search_results()
@@ -56,7 +56,7 @@ class SearchPageTest(unittest.TestCase):
 
     def test_search_nokia(self):
         self.search_page.enter_word('nokia')
-        self.search_page.search_basic()
+        self.search_page.search_default()
         self.search_page.clear_search()
         expected_text = 'There is no product that matches the search criteria.'
         self.assertIn(
@@ -68,7 +68,7 @@ class SearchPageTest(unittest.TestCase):
         expected_names_list = ['HP LP3065', 'iMac']
         self.search_page.enter_word_in_field_criteria('stunning')
         self.search_page.click_checkbox()
-        self.search_page.search_advanced()
+        self.search_page.search_primary()
         self.search_page.clear_field_criteria()
         actual_names_list = [product.name for product in self.search_page.get_search_results()]
         self.assertEqual(

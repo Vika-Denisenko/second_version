@@ -30,10 +30,11 @@ class AddReviewTest(unittest.TestCase):
 
     def test_with_24(self):
         name = 'John'
+        rating = random.randrange(5)
         review24_text = ''.join(choice(ascii_letters) for _ in range(24))
         expected_text = 'Warning: Review Text must be between 25 and 1000 characters!'
 
-        self.product_page.rating()
+        self.product_page.rating(rating)
         self.product_page.enter_name(name)
         self.product_page.enter_review(review24_text)
         self.product_page.review()
@@ -45,10 +46,11 @@ class AddReviewTest(unittest.TestCase):
 
     def test_with_25(self):
         name = 'John'
+        rating = random.randrange(5)
         review25 = ''.join(choice(ascii_letters) for _ in range(random.randint(25, 100)))
         expected_text = 'Thank you for your review. It has been submitted to the webmaster for approval.'
 
-        self.product_page.rating()
+        self.product_page.rating(rating)
         self.product_page.enter_name(name)
         self.product_page.enter_review(review25)
         self.product_page.review()

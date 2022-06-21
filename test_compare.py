@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from pageobject.compare_page import ComparePage
+from pageobject.comparison_page import ComparisonPage
 from pageobject.product_page import ProductPage, ProductInfo
 from webdriver_factory import WebDriverFactory
 
@@ -24,7 +24,7 @@ class CompareTest(unittest.TestCase):
         self.driver.close()
 
     def test_compare(self):
-        '''Проверяем успешно ли добавлен продукт к сравнению'''
+        '''Проверяем успешно ли добавлены продукты к сравнению'''
         for product in self.expected_product_list:
             product_page = ProductPage(self.driver, product.url)
             product_page.open()
@@ -34,22 +34,24 @@ class CompareTest(unittest.TestCase):
                 f'Success: You have added {product.name} to your product comparison!',
                 product_page.get_alert_text().split('\n')[0]
             )
-
-        compare_page = ComparePage(self.driver)
-        compare_page.open()
-        expected_names:List[str]=[product.name for product in self.expected_product_list]
-        actual_names:List[str]=compare_page.get_name_in_comparison()
+        '''Проверяем наличие продуктов на странице сравнения'''
+        product_page.open_comparison_page()
+        comparison_page = ComparisonPage(self.driver)
+        comparison_page.open()
+        # comparison_page = product_page.open_comparison_page()
+        expected_names: List[str] = [product.name for product in self.expected_product_list]
+        actual_names: List[str] = comparison_page.get_name_in_comparison()
 
         self.assertEqual(
-                    expected_names,
-                    actual_names
-                )
+            expected_names,
+            actual_names
+        )
 
         '''Проверяем успешно ли удалены продукты из сравнения'''
         for i in range(len(expected_names)):
-            compare_page.remove()
+            comparison_page.remove()
 
         self.assertEqual(
             'You have not chosen any products to compare.',
-            compare_page.get_alert_text().split('\n×')[0]
+            comparison_page.get_alert_text().split('\n×')[0]
         )
