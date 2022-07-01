@@ -1,0 +1,21 @@
+image: python:3.10
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Запуск Selenium-теста
+          services:
+            - headless
+          caches:
+            - pip
+          script:
+            - pip install -r requirements.txt
+            - pytest -v --junitxml=test-reports/report.xml --html=test-reports/report.html
+          artifacts:
+            - test-reports/**
+
+definitions:
+  services:
+    headless:
+      image: browserless/chrome:latest
