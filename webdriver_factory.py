@@ -63,7 +63,7 @@ class WebDriverFactory:
         # "This will force Chrome to use the /tmp directory instead.
         # This may slow down the execution though since disk will be used instead of memory."
         # https://stackoverflow.com/questions/53902507/unknown-error-session-deleted-because-of-page-crash-from-unknown-error-cannot
-
+        options.add_argument('--disable-dev-shm-usage')
 
         driver = webdriver.Remote(
             command_executor='http://localhost:3000/webdriver',
