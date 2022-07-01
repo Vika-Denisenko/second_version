@@ -20,7 +20,6 @@ def extract_decimal_price(text: str) -> Decimal:
     return Decimal(price_without_punctuation)
 
 
-
 class ProductPage(BasePage):
     def __init__(self, driver: WebDriver, product_id: str):
         super().__init__(driver)
@@ -39,7 +38,7 @@ class ProductPage(BasePage):
         return self.driver.find_elements(By.CLASS_NAME, 'col-sm-4')[1]
 
     def get_brand(self) -> str:
-        '''Получаем текс бренда'''
+        '''Получаем текст бренда'''
         brand: WebElement = self.get_brand_and_product_code().find_elements(By.TAG_NAME, 'li')[0]
         return brand.text
 
@@ -121,7 +120,7 @@ class ProductPage(BasePage):
         '''В поле отзывов вводим отзыв'''
         self.get_review_field().send_keys(review)
 
-    def compare_but(self)-> WebElement:
+    def compare_but(self) -> WebElement:
         '''Находим добавить в сравнение '''
         return self.driver.find_element(By.CSS_SELECTOR, '[data-original-title="Compare this Product"]')
 
