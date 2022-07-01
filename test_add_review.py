@@ -48,7 +48,7 @@ class AddReviewTest(unittest.TestCase):
         name = 'John'
         rating = random.randrange(5)
         review25 = ''.join(choice(ascii_letters) for _ in range(random.randint(25, 100)))
-        expected_text = 'Thank  you for your review. It has been submitted to the webmaster for approval.'
+        expected_text = 'Thank you for your review. It has been submitted to the webmaster for approval.'
 
         self.product_page.rating(rating)
         self.product_page.enter_name(name)
