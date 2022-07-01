@@ -8,12 +8,14 @@ from webdriver_factory import WebDriverFactory
 
 
 class SearchPageTest(unittest.TestCase):
+
     def setUp(self) -> None:
         self.driver = WebDriverFactory.get_driver()
         self.search_page = SearchPage(self.driver)
         self.search_page.open()
 
     def tearDown(self) -> None:
+
         self.driver.close()
 
     def test_search_apple(self):
