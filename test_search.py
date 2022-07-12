@@ -41,6 +41,7 @@ class SearchPageTest(unittest.TestCase):
         expected_product = ProductInfo(name='Sony VAIO',
                                        price=1202.00)
 
+
         self.search_page.enter_word('sony')
         self.search_page.search_default()
         self.search_page.clear_search()
